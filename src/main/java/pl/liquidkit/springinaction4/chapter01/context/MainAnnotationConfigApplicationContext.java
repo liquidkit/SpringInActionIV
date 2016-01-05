@@ -1,4 +1,4 @@
-package pl.liquidkit.springinaction4.chapter01;
+package pl.liquidkit.springinaction4.chapter01.context;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;

@@ -8,11 +8,11 @@
         http://www.springframework.org/schema/context/spring-context.xsd">
 
 
-    <bean id="knight" class="pl.liquidkit.springinaction4.chapter01.BraveKnight">
+    <bean id="knight" class="pl.liquidkit.springinaction4.chapter01.context.BraveKnight">
         <constructor-arg ref="quest" />
     </bean>
 
-    <bean id="quest" class="pl.liquidkit.springinaction4.chapter01.SlayDragonQuest">
+    <bean id="quest" class="pl.liquidkit.springinaction4.chapter01.context.SlayDragonQuest">
         <constructor-arg value="#{T(System).out}" />
     </bean>
 
