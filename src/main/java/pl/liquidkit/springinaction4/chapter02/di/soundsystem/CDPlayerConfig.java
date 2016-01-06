@@ -8,5 +8,7 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 @ComponentScan
+//@ComponentScan("pl.liquidkit.springinaction4.chapter02.di.soundsystem")
+//@ComponentScan(basePackageClasses = CompactDisc.class)
 public class CDPlayerConfig {
 }
