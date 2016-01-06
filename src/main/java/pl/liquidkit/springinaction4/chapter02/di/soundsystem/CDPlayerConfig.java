@@ -14,17 +14,26 @@ public class CDPlayerConfig {
 
     @Bean
     public MediaPlayer cdPlayer() {
-        return new CDPlayer(sgtPeppers());
+        CDPlayer cdPlayer = new CDPlayer();
+        cdPlayer.setCompactDisc(sgtPeppers());
+
+        return cdPlayer;
     }
 
     @Bean
     public MediaPlayer anotherCdPlayer() {
-        return new CDPlayer(sgtPeppers());
+        CDPlayer cdPlayer = new CDPlayer();
+        cdPlayer.setCompactDisc(sgtPeppers());
+
+        return cdPlayer;
     }
 
     @Bean
     public MediaPlayer compactDiscPlayer(CompactDisc compactDisc) {
-        return new CDPlayer(compactDisc);
+        CDPlayer cdPlayer = new CDPlayer();
+        cdPlayer.setCompactDisc(compactDisc);
+
+        return cdPlayer;
     }
 
     @Bean
