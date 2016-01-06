@@ -19,19 +19,23 @@ import static org.junit.Assert.assertNotNull;
 public class CDPlayerTest {
     @Rule
     public final StandardOutputStreamLog log = new StandardOutputStreamLog();
+
     @Autowired
-    private MediaPlayer player;
+//    @Qualifier("anotherCdPlayer")
+    private MediaPlayer anotherCdPlayer;
+
     @Autowired
-    private CompactDisc cd;
+//    @Qualifier("compactDisc")
+    private CompactDisc compactDisc;
 
     @Test
     public void cdShouldNotBeNull() {
-        assertNotNull(cd);
+        assertNotNull(compactDisc);
     }
 
     @Test
     public void play() {
-        player.play();
+        anotherCdPlayer.play();
         assertEquals("Playing record: Sgt. Pepper's Lonely Club Band artist The Beatles", log.getLog());
     }
 }
