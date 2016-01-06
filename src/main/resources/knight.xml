@@ -10,6 +10,7 @@
         http://www.springframework.org/schema/aop
         http://www.springframework.org/schema/aop/spring-aop-3.2.xsd">
 
+    <context:component-scan base-package="pl.liquidkit.springinaction4.chapter02.di.soundsystem" />
 
     <bean id="knight" class="pl.liquidkit.springinaction4.chapter01.context.BraveKnight">
         <constructor-arg ref="quest" />
