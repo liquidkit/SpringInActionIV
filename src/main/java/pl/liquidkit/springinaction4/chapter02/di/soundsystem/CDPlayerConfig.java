@@ -36,10 +36,11 @@ public class CDPlayerConfig {
         return cdPlayer;
     }
 
-    @Bean
-    public CompactDisc compactDisc() {
-        return new SgtPeppers();
-    }
+    // Moved "up" to CDConfig class.
+//    @Bean
+//    public CompactDisc compactDisc() {
+//        return new SgtPeppers();
+//    }
 
     @Bean(name = "lonelyHeartsClubBand")
     public CompactDisc sgtPeppers() {

@@ -2,24 +2,39 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:c="http://www.springframework.org/schema/c"
        xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:util="http://www.springframework.org/schema/util"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="
         http://www.springframework.org/schema/beans
-        http://www.springframework.org/schema/beans/spring-beans.xsd">
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/util
+        http://www.springframework.org/schema/util/spring-util.xsd">
 
-    <bean id="compactDisc" class="pl.liquidkit.springinaction4.chapter02.di.soundsystem.SgtPeppers"/>
+    <bean id="compactDisc" class="pl.liquidkit.springinaction4.chapter02.di.soundsystem.SgtPeppers" />
 
-    <bean id="compactDiscBlank" class="pl.liquidkit.springinaction4.chapter02.di.soundsystem.BlankDisc">
+    <bean id="compactDiscBlank" class="pl.liquidkit.springinaction4.chapter02.di.soundsystem.BlankDisc"
+            p:title="Sgt. Pepper's Lonely Hearts Club Band"
+            p:artist="The Beatles"
+            p:tracks-ref="trackList">
+        <!--<property name="tracks" ref="trackList">-->
+            <!--<list>-->
+                <!--<value>Sgt. Pepper's Lonely Hearts Club Band</value>-->
+                <!--<value>With a Little Help from My Friends</value>-->
+                <!--<value>Lucy in the Sky with Diamonds</value>-->
+            <!--</list>-->
+        <!--</property>-->
+
         <!--c:title="New Title" c:artist="New Artist">-->
-        <constructor-arg value="New Title"/>
-        <constructor-arg value="New Artist"/>
-        <constructor-arg>
-            <list>
-                <value>Sgt. Pepper's Lonely Hearts Club Band</value>
-                <value>With a Little Help from My Friends</value>
-                <value>Lucy in the Sky with Diamonds</value>
-            </list>
-        </constructor-arg>
+
+        <!--<constructor-arg value="New Title"/>-->
+        <!--<constructor-arg value="New Artist"/>-->
+        <!--<constructor-arg>-->
+            <!--<list>-->
+                <!--<value>Sgt. Pepper's Lonely Hearts Club Band</value>-->
+                <!--<value>With a Little Help from My Friends</value>-->
+                <!--<value>Lucy in the Sky with Diamonds</value>-->
+            <!--</list>-->
+        <!--</constructor-arg>-->
     </bean>
 
     <bean id="cdPlayer" class="pl.liquidkit.springinaction4.chapter02.di.soundsystem.CDPlayer"
@@ -31,4 +46,11 @@
 
         <!--<property name="compactDisc" ref="compactDisc" />-->
     </bean>
+
+
+    <util:list id="trackList">
+        <value>Sgt. Pepper's Lonely Hearts Club Band</value>
+        <value>With a Little Help from My Friends</value>
+        <value>Lucy in the Sky with Diamonds</value>
+    </util:list>
 </beans>

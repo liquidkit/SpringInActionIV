@@ -15,7 +15,7 @@ import static org.junit.Assert.assertNotNull;
  * Created by Jacek on 06.01.2016.
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = CDPlayerConfig.class)
+@ContextConfiguration(classes = SoundSystemConfig.class)
 public class CDPlayerTest {
     @Rule
     public final StandardOutputStreamLog log = new StandardOutputStreamLog();
