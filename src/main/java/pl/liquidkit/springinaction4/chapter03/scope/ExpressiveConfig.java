@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.ImportResource;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.core.env.Environment;
 import pl.liquidkit.springinaction4.chapter02.di.soundsystem.BlankDisc;
 
@@ -24,5 +25,12 @@ public class ExpressiveConfig {
                 env.getProperty("disc.title"),
                 env.getProperty("disc.artist")
         );
+
+//        return new BlankDisc();
+    }
+
+    @Bean
+    public static PropertySourcesPlaceholderConfigurer placeholderConfigurer() {
+        return new PropertySourcesPlaceholderConfigurer();
     }
 }

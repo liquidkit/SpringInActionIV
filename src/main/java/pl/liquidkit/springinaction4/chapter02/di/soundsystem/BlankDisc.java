@@ -1,12 +1,16 @@
 package pl.liquidkit.springinaction4.chapter02.di.soundsystem;
 
+import org.springframework.beans.factory.annotation.Value;
+
 import java.util.List;
 
 /**
  * Created by Jacek on 06.01.2016.
  */
 public class BlankDisc implements CompactDisc {
+    @Value("${disc.title}")
     private String title;
+    @Value("${disc.artist}")
     private String artist;
     private List<String> tracks;
 
