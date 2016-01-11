@@ -16,6 +16,14 @@ public class BlankDisc implements CompactDisc {
 //        this.tracks = tracks;
 //    }
 
+    public BlankDisc() {
+    }
+
+    public BlankDisc(String title, String artist) {
+        this.title = title;
+        this.artist = artist;
+    }
+
     public void setTitle(String title) {
         this.title = title;
     }
@@ -31,8 +39,10 @@ public class BlankDisc implements CompactDisc {
     public void play() {
         System.out.print("Playing record: " + title + " artist " + artist);
 
-        for (String track : tracks) {
-            System.out.println("-Track: " + track);
+        if (tracks != null && tracks.size() > 0) {
+            for (String track : tracks) {
+                System.out.println("-Track: " + track);
+            }
         }
     }
 }
