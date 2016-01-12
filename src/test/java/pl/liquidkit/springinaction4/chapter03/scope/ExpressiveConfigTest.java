@@ -24,11 +24,13 @@ public class ExpressiveConfigTest {
     public void testDiscJavaConfig() throws Exception {
         System.out.println("#### testDiscJavaConfig");
         disc.play();
+        System.out.println();
     }
 
     @Test
     public void testDiscXmlConfig() throws Exception {
         System.out.println("#### testDiscXmlConfig");
         sgtPeppers.play();
+        System.out.println();
     }
 }

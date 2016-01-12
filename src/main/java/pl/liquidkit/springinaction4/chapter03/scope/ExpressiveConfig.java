@@ -21,16 +21,12 @@ public class ExpressiveConfig {
 
     @Bean
     public BlankDisc disc() {
-        return new BlankDisc(
-                env.getProperty("disc.title"),
-                env.getProperty("disc.artist")
-        );
-
-//        return new BlankDisc();
+        return new BlankDisc();
     }
 
     @Bean
     public static PropertySourcesPlaceholderConfigurer placeholderConfigurer() {
+        // combined with @PropertySource("classpath:app.properties")
         return new PropertySourcesPlaceholderConfigurer();
     }
 }
