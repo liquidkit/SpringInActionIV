@@ -19,6 +19,7 @@
     </bean>
 
     <bean id="sgtPeppers" class="pl.liquidkit.springinaction4.chapter02.di.soundsystem.BlankDisc"
-          c:title="${disc.title}" c:artist="${disc.artist}"/>
+          c:title="${disc.title}" c:artist="${disc.artist}" />
+          <!--c:title="#{systemProperties['disc.title']}"-->
 
 </beans>

@@ -9,8 +9,10 @@ import java.util.List;
  */
 public class BlankDisc implements CompactDisc {
     @Value("${disc.title}")
+//    @Value("#{systemProperties['disc.title']}")
     private String title;
     @Value("${disc.artist}")
+//    @Value("#{systemProperties['disc.artist']}")
     private String artist;
     private List<String> tracks;
 
