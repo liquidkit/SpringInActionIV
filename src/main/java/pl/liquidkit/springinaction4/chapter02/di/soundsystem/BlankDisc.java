@@ -1,6 +1,7 @@
 package pl.liquidkit.springinaction4.chapter02.di.soundsystem;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
@@ -49,6 +50,12 @@ public class BlankDisc implements CompactDisc {
             for (String track : tracks) {
                 System.out.println("-Track: " + track);
             }
+        }
+    }
+
+    public void playTrack(int trackNumber) {
+        if (tracks != null && tracks.size() > 0) {
+            System.out.println("-Track: " + tracks.get(trackNumber));
         }
     }
 }

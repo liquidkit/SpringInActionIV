@@ -8,4 +8,8 @@ public class WhiteAlbum implements CompactDisc {
     public void play() {
 
     }
+
+    public void playTrack(int trackNumber) {
+
+    }
 }

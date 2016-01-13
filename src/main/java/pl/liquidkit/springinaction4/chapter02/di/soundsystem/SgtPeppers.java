@@ -13,4 +13,8 @@ public class SgtPeppers implements CompactDisc {
     public void play() {
         System.out.print("Playing record: " + title + " artist " + artist);
     }
+
+    public void playTrack(int trackNumber) {
+
+    }
 }

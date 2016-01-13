@@ -1,5 +1,6 @@
 package pl.liquidkit.springinaction4.chapter04.aop;
 
+import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
 
 /**
@@ -31,5 +32,19 @@ public class Audience {
     @AfterThrowing("performance()")
     public void demandRefund() {
         System.out.println("Buu! Give my money back!");
+    }
+
+    @Around("performance()")
+    public void watchPerformance(ProceedingJoinPoint jp) {
+        try {
+            System.out.println("Please silence your cell phones.");
+            System.out.println("Please take your seats.");
+
+            jp.proceed();
+
+            System.out.println("Bravo!");
+        } catch (Throwable e) {
+            System.out.println("Buu! Give my money back!");
+        }
     }
 }

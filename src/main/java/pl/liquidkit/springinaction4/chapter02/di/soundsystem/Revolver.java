@@ -8,4 +8,8 @@ public class Revolver implements CompactDisc {
     public void play() {
 
     }
+
+    public void playTrack(int trackNumber) {
+
+    }
 }
