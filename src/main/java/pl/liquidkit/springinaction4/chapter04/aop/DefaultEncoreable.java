@@ -5,6 +5,6 @@ package pl.liquidkit.springinaction4.chapter04.aop;
  */
 public class DefaultEncoreable implements Encoreable {
     public void performEncore() {
-
+        System.out.println("Encore, Encore!");
     }
 }

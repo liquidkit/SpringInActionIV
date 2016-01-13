@@ -21,6 +21,16 @@ public class ConcertConfig {
     }
 
     @Bean
+    public Performance concert() {
+        return new Concert();
+    }
+
+//    @Bean
+//    public Encoreable encoreable() {
+//        return new DefaultEncoreable();
+//    }
+
+    @Bean
     public EncoreableIntroducer encoreableIntroducer() {
         return new EncoreableIntroducer();
     }

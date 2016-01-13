@@ -34,7 +34,7 @@ public class Audience {
         System.out.println("Buu! Give my money back!");
     }
 
-    @Around("performance()")
+//    @Around("performance()")
     public void watchPerformance(ProceedingJoinPoint jp) {
         try {
             System.out.println("Please silence your cell phones.");

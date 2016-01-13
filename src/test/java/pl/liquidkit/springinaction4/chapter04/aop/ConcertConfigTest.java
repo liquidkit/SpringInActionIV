@@ -15,10 +15,20 @@ import static org.junit.Assert.*;
 @ContextConfiguration(classes = ConcertConfig.class)
 public class ConcertConfigTest {
     @Autowired
+    private Performance concert;
+//    @Autowired
+//    private Encoreable encoreable;
+
+    @Autowired
     private EncoreableIntroducer encoreableIntroducer;
 
     @Test
-    public void testEncoreableIntroducer() throws Exception {
+    public void testConcert() {
+        concert.perform();
+    }
+
+    @Test
+    public void testEncoreable() throws Exception {
 //        encoreableIntroducer.encoreable.performEncore();
     }
 }
