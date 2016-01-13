@@ -15,7 +15,7 @@ import static org.junit.Assert.*;
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = TrackCounterConfig.class)
-public class TrackCounterTest {
+public class TrackCounterConfigTest {
     @Autowired
     private CompactDisc blankDisc;
     @Autowired

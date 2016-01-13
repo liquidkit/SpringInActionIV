@@ -17,21 +17,20 @@ import java.util.List;
 public class TrackCounterConfig {
     @Bean
     public CompactDisc blankDisc() {
-//        BlankDisc blankDisc = new BlankDisc();
-//
-//        blankDisc.setTitle("Some extra title");
-//        blankDisc.setArtist("Some extra artist");
-//
-//        List<String> tracks = new ArrayList<String>();
-//        tracks.add("Track 1");
-//        tracks.add("Track 2");
-//        tracks.add("Track 3");
-//        tracks.add("Track 4");
-//
-//        blankDisc.setTracks(tracks);
-//
-//        return blankDisc;
-        return new BlankDisc();
+        BlankDisc blankDisc = new BlankDisc();
+
+        blankDisc.setTitle("Some extra title");
+        blankDisc.setArtist("Some extra artist");
+
+        List<String> tracks = new ArrayList<String>();
+        tracks.add("Track 1");
+        tracks.add("Track 2");
+        tracks.add("Track 3");
+        tracks.add("Track 4");
+
+        blankDisc.setTracks(tracks);
+
+        return blankDisc;
     }
 
     @Bean
