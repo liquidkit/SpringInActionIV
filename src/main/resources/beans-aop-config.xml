@@ -14,11 +14,8 @@
         http://www.springframework.org/schema/util
         http://www.springframework.org/schema/util/spring-util.xsd">
 
-    <!--<context:component-scan base-package="pl.liquidkit.springinaction4.chapter04.aop" />-->
-
     <aop:aspectj-autoproxy />
 
-    <!--<bean id="audience" class="pl.liquidkit.springinaction4.chapter04.aop.Audience" />-->
     <bean id="concert" class="pl.liquidkit.springinaction4.chapter04.aop.Concert" />
     <bean id="audienceNoAspect" class="pl.liquidkit.springinaction4.chapter04.aop.AudienceNoAspect" />
 
@@ -26,6 +23,8 @@
             p:title="Title for BlankDisc" p:artist="Artist for BlankDisc"
             p:tracks-ref="trackList" />
     <bean id="trackCounterNoAspect" class="pl.liquidkit.springinaction4.chapter04.aop.TrackCounterNoAspect" />
+
+    <bean id="encorableDelegate" class="pl.liquidkit.springinaction4.chapter04.aop.DefaultEncoreable" />
 
     <aop:config>
         <aop:aspect ref="audienceNoAspect">
@@ -46,6 +45,14 @@
                           expression="execution(* pl.liquidkit.springinaction4.chapter02.di.soundsystem.CompactDisc.playTrack(int)) and args(trackNumber)" />
 
             <aop:before pointcut-ref="trackPlayed" method="trackCount" />
+        </aop:aspect>
+        
+        <aop:aspect>
+            <aop:declare-parents
+                    types-matching="pl.liquidkit.springinaction4.chapter04.aop.Performance+"
+                    implement-interface="pl.liquidkit.springinaction4.chapter04.aop.Encoreable"
+                    delegate-ref="encorableDelegate" />
+                    <!--default-impl="pl.liquidkit.springinaction4.chapter04.aop.DefaultEncoreable"-->
         </aop:aspect>
     </aop:config>
 
