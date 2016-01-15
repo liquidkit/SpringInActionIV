@@ -1,6 +1,8 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:aop="http://www.springframework.org/schema/aop"
        xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:util="http://www.springframework.org/schema/util"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="
         http://www.springframework.org/schema/beans
@@ -8,7 +10,9 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd
         http://www.springframework.org/schema/aop
-        http://www.springframework.org/schema/aop/spring-aop-3.2.xsd">
+        http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
+        http://www.springframework.org/schema/util
+        http://www.springframework.org/schema/util/spring-util.xsd">
 
     <!--<context:component-scan base-package="pl.liquidkit.springinaction4.chapter04.aop" />-->
 
@@ -16,8 +20,12 @@
 
     <!--<bean id="audience" class="pl.liquidkit.springinaction4.chapter04.aop.Audience" />-->
     <bean id="concert" class="pl.liquidkit.springinaction4.chapter04.aop.Concert" />
-
     <bean id="audienceNoAspect" class="pl.liquidkit.springinaction4.chapter04.aop.AudienceNoAspect" />
+
+    <bean id="blankDisc" class="pl.liquidkit.springinaction4.chapter02.di.soundsystem.BlankDisc"
+            p:title="Title for BlankDisc" p:artist="Artist for BlankDisc"
+            p:tracks-ref="trackList" />
+    <bean id="trackCounterNoAspect" class="pl.liquidkit.springinaction4.chapter04.aop.TrackCounterNoAspect" />
 
     <aop:config>
         <aop:aspect ref="audienceNoAspect">
@@ -26,10 +34,24 @@
             
             <aop:before pointcut-ref="performance" method="silenceCellPhones" />
             <aop:before pointcut-ref="performance" method="takeSeats" />
+
+            <aop:around pointcut-ref="performance" method="watchPerformance" />
             
             <aop:after-returning pointcut-ref="performance" method="applause" />
             <aop:after-throwing pointcut-ref="performance" method="demandRefund" />
         </aop:aspect>
+
+        <aop:aspect ref="trackCounterNoAspect">
+            <aop:pointcut id="trackPlayed"
+                          expression="execution(* pl.liquidkit.springinaction4.chapter02.di.soundsystem.CompactDisc.playTrack(int)) and args(trackNumber)" />
+
+            <aop:before pointcut-ref="trackPlayed" method="trackCount" />
+        </aop:aspect>
     </aop:config>
 
+    <util:list id="trackList">
+        <value>Sgt. Pepper's Lonely Hearts Club Band</value>
+        <value>With a Little Help from My Friends</value>
+        <value>Lucy in the Sky with Diamonds</value>
+    </util:list>
 </beans>

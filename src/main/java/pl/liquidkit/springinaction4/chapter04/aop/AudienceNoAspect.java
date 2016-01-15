@@ -24,4 +24,17 @@ public class AudienceNoAspect {
         System.out.println("XML: Buu! Give my money back!");
     }
 
+    public void watchPerformance(ProceedingJoinPoint jp) {
+        try {
+            System.out.println("Please silence your cell phones.");
+            System.out.println("Please take your seats.");
+
+            jp.proceed();
+
+            System.out.println("Bravo!");
+        } catch (Throwable e) {
+            System.out.println("Buu! Give my money back!");
+        }
+    }
+
 }
